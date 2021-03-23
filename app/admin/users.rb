@@ -1,11 +1,12 @@
 ActiveAdmin.register User do
   menu priority: 4
-  permit_params :email, :username, :is_admin, :password_digest
+  permit_params :email, :username, :is_admin, :password
 
   show do |m|
     attributes_table do
       row :email  
       row :username
+      row :password_digest
       row :is_admin 
       row :created_at
       row :updated_at
@@ -35,7 +36,7 @@ ActiveAdmin.register User do
       f.input :email
       f.input :username
       f.input :is_admin
-      f.input :password_digest
+      f.input :password
     end
     f.actions
   end

@@ -4,7 +4,11 @@ class NotesController < ApiController
 
   # GET /notes
   def index
-    @notes = Note.where(user_id: @user.id)
+    if @user.is_admin == false
+      @notes = Note.where(user_id: @user.id)
+    else
+      @notes = Note.all
+    end
     render json: @notes
   end
 
@@ -17,8 +21,6 @@ class NotesController < ApiController
   def create
     @note = Note.new(note_params)
     @note.user_id = @user.id
-    @note.project_id = @project.id
-    @note.category_id = @category.id
 
     if @note.save
       render json: @note, status: :created, location: @note

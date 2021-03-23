@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :projects
     # post 'signup', to: 'users#create'
     post 'signin', to: "users#login"
-    get "auto_login", to: "users#auto_login"
+    get "users", to: "users#index"
   end
 end

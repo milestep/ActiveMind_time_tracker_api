@@ -1,6 +1,11 @@
 class UsersController < ApiController
     before_action :authorized, only: [:auto_login]
 
+  def index
+    @users = User.all
+    render json: @users
+  end
+
   # REGISTER
   def create
     @user = User.create(user_params)
@@ -22,11 +27,6 @@ class UsersController < ApiController
     else
       render json: {error: "Invalid email or password"}
     end
-  end
-
-
-  def auto_login
-    render json: @user
   end
 
   private
