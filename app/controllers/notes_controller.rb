@@ -4,10 +4,10 @@ class NotesController < ApiController
 
   # GET /notes
   def index
-    if @user.is_admin == false
-      @notes = Note.where(user_id: @user.id)
-    else
+    if @user.is_admin?
       @notes = Note.all
+    else
+      @notes = logged_in_user.notes
     end
     render json: @notes
   end

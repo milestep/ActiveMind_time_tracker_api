@@ -19,7 +19,6 @@ gem 'puma', '~> 5.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt', '~> 2.2.1'
 gem 'rack-cors'
-gem 'rubocop'
 gem 'rubocop-rails'
 
 # Use Active Storage variant
@@ -31,7 +30,6 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'activeadmin'
 gem 'devise'
 gem 'cancancan'
-gem 'draper'
 gem 'pundit'
 
 group :development, :test do
@@ -43,9 +41,13 @@ end
 group :test do
   gem 'simplecov', require: false
   gem 'factory_bot_rails', '~> 4.0'
-  gem 'shoulda-matchers', '~> 3.1'
   gem 'faker'
   gem 'database_cleaner'
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 group :development do
