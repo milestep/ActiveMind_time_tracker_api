@@ -5,8 +5,8 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: postgres
-  password: <%= ENV["dbpassword"] %>
+  username: deploy_orlov
+  password: "1q2w3e4r"
   timeout: 5000
 
 development:
