@@ -3,7 +3,7 @@ server '138.68.188.160', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:0vermore/ActiveMind_time_tracker_api.git'
 set :application,     'ActiveMind_time_tracker_api'
-set :user,            'deploy'
+set :user,            'deploy_orlov'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
@@ -73,7 +73,7 @@ namespace :deploy do
     end
   end
   before :finishing,  :secret
-  
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do

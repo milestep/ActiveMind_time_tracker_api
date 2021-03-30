@@ -320,7 +320,7 @@ DEPENDENCIES
   faker
   jwt (~> 2.2.1)
   listen (~> 3.3)
-  pg
+  pg (~> 1.1)
   puma (~> 5.0)
   pundit
   rack-cors
