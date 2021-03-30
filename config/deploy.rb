@@ -1,4 +1,4 @@
-server '138.168.188.60', port: 22 , roles: [:web, :app, :db], primary: true
+server '138.68.188.160', port: 22 , roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:0vermore/ActiveMind_time_tracker_api.git'
 set :application,     'ActiveMind_time_tracker_api'
