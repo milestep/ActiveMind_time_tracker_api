@@ -18,4 +18,4 @@ production:
   <<: *default
   database: TimeTracker_api_production
   username: deploy_orlov
-  password: "1q2w3e4r"
+  password: "password"
