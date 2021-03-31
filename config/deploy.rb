@@ -65,14 +65,6 @@ namespace :deploy do
     end
   end
 
-  desc 'Rails Secrets'
-  task :secret do
-    on roles(:app) do
-      execute "export SECRET_KEY_BASE=`bundle exec rake secret`"
-    end
-  end
-  before :finishing,  :secret
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
