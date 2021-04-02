@@ -16,6 +16,6 @@ test:
   database: TimeTracker_api_test
 production:
   <<: *default
-  database: deploy_orlov
-  username: deploy_orlov
-  password: "password"
+  database: deployer
+  username: deployer
+  password: "deployer"

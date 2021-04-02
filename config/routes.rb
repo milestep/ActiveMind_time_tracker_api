@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root to: 'application#index'
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  begin
-    ActiveAdmin.routes(self)
-  rescue Exception => e
-    puts "ActiveAdmin: #{e.class}: #{e}"
-  end
+  # root to: 'application#index'
+  # devise_for :admin_users, ActiveAdmin::Devise.config
+  # begin
+  #   ActiveAdmin.routes(self)
+  # rescue Exception => e
+  #   puts "ActiveAdmin: #{e.class}: #{e}"
+  # end
   scope :api do
     resources :notes
     resources :categories

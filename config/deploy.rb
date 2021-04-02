@@ -1,8 +1,8 @@
-server '138.68.188.160', port: 22 , roles: [:web, :app, :db], primary: true
+server '178.62.21.51', port: 22 , roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:0vermore/ActiveMind_time_tracker_api.git'
 set :application,     'ActiveMind_time_tracker_api'
-set :user,            'deploy_orlov'
+set :user,            'deployer'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
@@ -75,7 +75,7 @@ namespace :deploy do
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after  :finishing,    :restart
+  #after  :finishing,    :restart
 end
 
 # ps aux | grep puma    # Get puma pid
