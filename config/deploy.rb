@@ -65,6 +65,17 @@ namespace :deploy do
     end
   end
 
+  task :seed do
+    puts "Seeding Database"
+    on primary :db do
+     within current_path do
+       with rails_env: fetch(:stage) do
+         execute :rake, 'db:seed'
+       end
+     end
+    end
+   end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
