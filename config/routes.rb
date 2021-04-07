@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  root to: 'application#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   begin
     ActiveAdmin.routes(self)
