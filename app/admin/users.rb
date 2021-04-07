@@ -1,11 +1,12 @@
 ActiveAdmin.register User do
   menu priority: 4
-  permit_params :email, :username, :is_admin, :password
+  permit_params :email, :firstname, :lastname, :is_admin, :password
 
   show do |m|
     attributes_table do
       row :email  
-      row :username
+      row :firstname
+      row :lastname
       row :password_digest
       row :is_admin 
       row :created_at
@@ -18,7 +19,8 @@ ActiveAdmin.register User do
     selectable_column
     id_column
     column :email
-    column :username
+    column :firstname
+    column :lastname
     column :is_admin
     column :created_at
     column :updated_at
@@ -26,7 +28,8 @@ ActiveAdmin.register User do
   end
 
   filter :email
-  filter :username
+  filter :firstname
+  filter :lastname
   filter :is_admin
   filter :created_at
   filter :updated_at
@@ -34,7 +37,8 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs do
       f.input :email
-      f.input :username
+      f.input :firstname
+      f.input :lastname
       f.input :is_admin
       f.input :password
     end

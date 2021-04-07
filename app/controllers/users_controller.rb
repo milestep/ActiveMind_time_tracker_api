@@ -32,6 +32,6 @@ class UsersController < ApiController
   private
 
   def user_params
-    params.permit(:email, :username, :is_admin, :password)
+    params.permit(:email, :firstname, :lastname, :is_admin, :password)
   end
 end
