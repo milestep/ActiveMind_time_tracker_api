@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :notes
     resources :categories
     resources :projects
+    put 'setup/:id', to: 'users#update'
     # post 'signup', to: 'users#create'
     post 'signin', to: "users#login"
     get "users", to: "users#index"
