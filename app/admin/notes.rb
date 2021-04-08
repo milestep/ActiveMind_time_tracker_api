@@ -9,7 +9,7 @@ ActiveAdmin.register Note do
     category = Category.find(m.category_id)
     attributes_table do
       row :user do
-        link_to user.lastname, admin_user_path(m.user_id)
+        link_to user.firstname + ' ' + user.lastname, admin_user_path(m.user_id)
       end
       row :project do
         link_to project.project, admin_project_path(m.project_id)
@@ -28,7 +28,7 @@ ActiveAdmin.register Note do
     id_column
     column "User" do |m|
       user = User.find(m.user_id)
-      link_to user.lastname, admin_user_path(m.user_id)
+      link_to user.firstname + ' ' + user.lastname, admin_user_path(m.user_id)
     end
     column "Project" do |m|
       project = Project.find(m.project_id)
@@ -45,7 +45,7 @@ ActiveAdmin.register Note do
     actions
   end
 
-  filter :user_id, :as => :select, :collection => User.all.map{ |x| [x.lastname, x.id] } 
+  filter :user_id, :as => :select, :collection => User.all.map{ |x| [x.firstname + ' ' + x.lastname, x.id] } 
   filter :project_id,  :as => :select, :collection => Project.all.map{ |x| [x.project, x.id] }
   filter :category_id,  :as => :select, :collection => Category.all.map{ |x| [x.category, x.id] }
   filter :hours
@@ -55,7 +55,7 @@ ActiveAdmin.register Note do
 
   form do |f|
     f.inputs do
-      f.input :user_id, :as => :select, :collection => User.all.map{ |x| [x.lastname, x.id] } 
+      f.input :user_id, :as => :select, :collection => User.all.map{ |x| [x.firstname + ' ' + x.lastname, x.id] } 
       f.input :project_id,  :as => :select, :collection => Project.all.map{ |x| [x.project, x.id] }
       f.input :category_id,  :as => :select, :collection => Category.all.map{ |x| [x.category, x.id] }
       f.input :hours
