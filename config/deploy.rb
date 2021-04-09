@@ -72,6 +72,13 @@ namespace :deploy do
     end
   end
 
+  desc "Active Admin assets precompile"
+  task :active_admin_assets do
+    on roles(:app) do
+      execute "cd #{current_path}; bundle exec rake assets:precompile"
+    end
+  end
+
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
