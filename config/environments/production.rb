@@ -1,14 +1,6 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-
-  config.serve_static_assets = true
-  config.assets.compile = true
-
-  # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( active_admin.css active_admin/print.css active_admin.js )
-  # Settings specified here will take precedence over those in config/application.rb.
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
