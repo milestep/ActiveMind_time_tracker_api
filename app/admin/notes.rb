@@ -1,6 +1,6 @@
 ActiveAdmin.register Note do
   menu priority: 1
-  permit_params :user_id, :project_id, :category_id, :hours, :date
+  permit_params :user_id, :project_id, :category_id, :description, :hours, :date
 
   show do |m|
     note = Note.find(m.id)
@@ -17,6 +17,7 @@ ActiveAdmin.register Note do
       row :category do
         link_to category.category, admin_category_path(m.category_id)
       end
+      row :description
       row :hours
       row :date
     end
@@ -38,6 +39,7 @@ ActiveAdmin.register Note do
       category = Category.find(m.category_id)
       link_to category.category, admin_category_path(m.category_id)
     end
+    column :description
     column :hours
     column :date
     column :created_at
@@ -48,6 +50,7 @@ ActiveAdmin.register Note do
   filter :user_id, :as => :select, :collection => User.all.map{ |x| [x.firstname + ' ' + x.lastname, x.id] } 
   filter :project_id,  :as => :select, :collection => Project.all.map{ |x| [x.project, x.id] }
   filter :category_id,  :as => :select, :collection => Category.all.map{ |x| [x.category, x.id] }
+  filter :description
   filter :hours
   filter :date
   filter :created_at
@@ -58,6 +61,7 @@ ActiveAdmin.register Note do
       f.input :user_id, :as => :select, :collection => User.all.map{ |x| [x.firstname + ' ' + x.lastname, x.id] } 
       f.input :project_id,  :as => :select, :collection => Project.all.map{ |x| [x.project, x.id] }
       f.input :category_id,  :as => :select, :collection => Category.all.map{ |x| [x.category, x.id] }
+      f.input :description
       f.input :hours
       f.input :date
     end

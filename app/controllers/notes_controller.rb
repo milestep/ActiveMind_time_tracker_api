@@ -50,6 +50,6 @@ class NotesController < ApiController
     end
 
     def note_params
-      params.require(:note).permit(:hours, :date, :user_id, :project_id, :category_id)
+      params.require(:note).permit(:description, :hours, :date, :user_id, :project_id, :category_id)
     end
 end
