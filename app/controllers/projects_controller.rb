@@ -20,7 +20,7 @@ class ProjectsController < ApiController
     if @project.save
       render json: @project, status: :created, location: @project
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: {error: @project.errors.full_messages.join("; ")}, status: :unprocessable_entity
     end
   end
 
