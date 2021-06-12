@@ -20,7 +20,7 @@ class CategoriesController < ApiController
     if @category.save
       render json: @category, status: :created, location: @category
     else
-      render json: @category.errors, status: :unprocessable_entity
+      render json: {error: @category.errors.full_messages.join("; ")}, status: 401
     end
   end
 
