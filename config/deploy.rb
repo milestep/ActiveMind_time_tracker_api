@@ -1,6 +1,6 @@
 server '178.62.21.51', port: 22 , roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'git@github.com:0vermore/ActiveMind_time_tracker_api.git'
+set :repo_url,        'https://github.com/milestep/ActiveMind_time_tracker_api.git'
 set :application,     'ActiveMind_time_tracker_api'
 set :user,            'deployer'
 set :puma_threads,    [4, 16]
