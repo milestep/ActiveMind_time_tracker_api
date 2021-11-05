@@ -1,5 +1,9 @@
-# README
+# MileStep Portal API
 
-Run:
+## Development
 
-rails s
+To run project localy: `rails s`
+
+## Deployment
+
+To deploy api: `cap production deploy`
